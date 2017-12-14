@@ -20,8 +20,9 @@ var DBFunctions = function() {
     }
 
 	this.insertExerciseEntry = function(conn, data) {
+	console.log("entered into insert");
 		return new bpromise(function(resolve, reject) {
-			var query = conn.query("INSERT INTO work_items (`id`, `mInput_type`, `mActivity_type`, `mDateTime`, `mTime`, `mDuration`, `mDistance`, `mAvg_pace`, `mAvg_speed`, `mCalorie`, `mClimb`, `mComment`) VALUES (null, " + data.mInput_type + ", "+ data.mActivity_type +", "+ data.mDateTime +", "+ data.mTime +", "+ data.mDuration +", "+ data.mDistance +", "+ data.mAvg_pace +", "+ data.mAvg_speed +", "+ data.mCalorie +", "+ data.mClimb +", "+ data.mComment +");" , function (error, results) {
+			var query = conn.query("INSERT INTO ExerciseEntry (`id`, `mInput_type`, `mActivity_type`, `mDateTime`, `mTime`, `mDuration`, `mDistance`, `mAvg_pace`, `mAvg_speed`, `mCalorie`, `mClimb`, `mComment`) VALUES (null, " + data.mInputType + ", "+ data.mActivityType +", '"+ data.mDateTime +"', '"+ data.mTimeStamp +"', "+ data.mDuration +", "+ data.mDistance +", "+ data.mAvgPace +", "+ data.mAvgSpeed +", "+ data.mCalorie +", "+ data.mClimb +", '"+ data.mComment +"');" , function (error, results) {
 				if(error) {
 					reject(error);
 				} else {
@@ -33,7 +34,7 @@ var DBFunctions = function() {
 
 	this.insertLatLngCoordinates = function(conn, data) {
 	    return new bpromise(function(resolve, reject) {
-            var query = conn.query("INSERT INTO work_items (`id`, `exerciseEntryId`, `lat`, `lng`) VALUES (null, " + data.exerciseEntryId + ", "+ data.lat +", "+ data.lng +");" , function (error, results) {
+            var query = conn.query("INSERT INTO LatLngCoordinate (`id`, `exerciseEntryId`, `lat`, `lng`) VALUES (null, " + data.exerciseEntryId + ", "+ data.lat +", "+ data.lng +");" , function (error, results) {
         	    if(error) {
         			reject(error);
         		} else {

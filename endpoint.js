@@ -21,6 +21,7 @@ var router = express.Router();              // get an instance of the express Ro
 router.route('/insert-exercise-entry/')
 // Create endpoint localhost:9090/api/insert-exercise-entry
     .post(function(req, res) {
+        var response;
     	if (!req.body) 
     		return res.sendStatus(400);
 
@@ -28,12 +29,12 @@ router.route('/insert-exercise-entry/')
         var dbConn = DB.connectToDB();
         DB.insertExerciseEntry(dbConn, req.body).then(function(result) {
         	dbConn.end();
-
+            res.end('Data Inserted. ID=' + result.insertId);
 	 	}).catch(function(error) {
-				dbConn.end();
-				res.end('Insert failed: ' + error);
+	 	    console.log(error);
+	 	    dbConn.end();
+	 	    res.end('Insert failed: ' + error);
 		});
-        res.end('Data Inserted. ID=' + res.id);
     });
 
 router.route('/insert-lat-lng-coordinates/')
@@ -46,12 +47,11 @@ router.route('/insert-lat-lng-coordinates/')
         var dbConn = DB.connectToDB();
         DB.insertLatLngCoordinates(dbConn, req.body).then(function(result) {
             dbConn.end();
-
+            res.end('Data Inserted. ID=' + result.insertId);
         }).catch(function(error) {
             dbConn.end();
             res.end('Insert failed: ' + error);
         });
-        res.end('Data Inserted. ID=' res.id);
     });
 
 // REGISTER OUR ROUTES -------------------------------
