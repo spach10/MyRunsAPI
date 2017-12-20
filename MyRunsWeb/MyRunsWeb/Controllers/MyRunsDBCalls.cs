@@ -5,7 +5,7 @@ namespace MyRunsWeb.Controllers
 {
     public class MyRunsDBCalls
     {
-        const string path = "http://192.168.1.5:9090/api/";
+        const string path = "http://10.4.136.224:9090/api/";
 
         public static string MyRunsApiCallGet(string extension)
         {
