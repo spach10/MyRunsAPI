@@ -6,3 +6,8 @@ node_modules
 
 #Ignore .env file
 .env
+
+#VS for Mac
+MyRunsWeb/MyRunsWeb/bin/
+
+MyRunsWeb/MyRunsWeb/obj/
