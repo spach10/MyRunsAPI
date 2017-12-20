@@ -62,7 +62,7 @@ var DBFunctions = function() {
 				if(error) {
         			reject(error);
         		} else {
-        			resolve(JSON.stringify(results));
+        			resolve(JSON.stringify(results[0]));
         		}
 			});
 		});
