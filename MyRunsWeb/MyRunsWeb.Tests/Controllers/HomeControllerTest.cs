@@ -19,7 +19,7 @@ namespace MyRunsWeb.Tests.Controllers
             var controller = new HomeController();
 
             // Act
-            var result = (ViewResult)controller.Index();
+            var result = (ViewResult)HomeController.Index(controller);
 
             var mvcName = typeof(Controller).Assembly.GetName();
             var isMono = Type.GetType("Mono.Runtime") != null;

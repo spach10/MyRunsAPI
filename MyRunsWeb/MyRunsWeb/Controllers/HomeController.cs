@@ -17,7 +17,7 @@ namespace MyRunsWeb.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(GetExerciseEntries());
         }
 
         ExerciseEntry GetExerciseEntry(int id)

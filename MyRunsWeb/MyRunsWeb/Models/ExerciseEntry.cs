@@ -2,17 +2,17 @@
 {
     public class ExerciseEntry
     {
-        internal int id { get; set; }
-        internal int mInput_type { get; set; }
-        internal int mActivity_type { get; set; }
-        internal string mDateTime { get; set; }
-        internal string mTime { get; set; }
-        internal double mDuration { get; set; }
-        internal double mDistance { get; set; }
-        internal double mAvg_pace { get; set; }
-        internal double mAvg_speed { get; set; }
-        internal int mCalorie { get; set; }
-        internal int mClimb { get; set; }
-        internal string mComment { get; set; }
+        public int id { get; set; }
+        public int mInput_type { get; set; }
+        public int mActivity_type { get; set; }
+        public string mDateTime { get; set; }
+        public string mTime { get; set; }
+        public double mDuration { get; set; }
+        public double mDistance { get; set; }
+        public double mAvg_pace { get; set; }
+        public double mAvg_speed { get; set; }
+        public int mCalorie { get; set; }
+        public int mClimb { get; set; }
+        public string mComment { get; set; }
     }
 }

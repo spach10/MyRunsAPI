@@ -1,28 +1,47 @@
-﻿
+﻿@using System;
+@using MyRunsWeb.Models;
+@model List<ExerciseEntry>
 
 <div class="row">
-    <div class="col-sm-4"></div>
+    <div class="col-sm-2"></div>
     <div class="col-sm-8">
         <table class="table table-hover table-striped">
             <thead>
                 <tr>
-                    <th>Test</th>
+                    <th>id</th>
+                    <th>mInput_type</th>
+                    <th>mActivity_type</th>
+                    <th>mDateTime</th>
+                    <th>mTime</th>
+                    <th>mDuration</th>
+                    <th>mDistance</th>
+                    <th>mAvg_pace</th>
+                    <th>mAvg_speed</th>
+                    <th>mCalorie</th>
+                    <th>mClimb</th>
+                    <th>mComment</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach(var exerciseEntry in Model)
+                {
+                    <tr>
+                        <td>@exerciseEntry.id</td>
+                        <td>@exerciseEntry.mInput_type</td>
+                        <td>@exerciseEntry.mActivity_type</td>
+                        <td>@exerciseEntry.mDateTime</td>
+                        <td>@exerciseEntry.mTime</td>
+                        <td>@exerciseEntry.mDuration</td>
+                        <td>@exerciseEntry.mDistance</td>
+                        <td>@exerciseEntry.mAvg_pace</td>
+                        <td>@exerciseEntry.mAvg_speed</td>
+                        <td>@exerciseEntry.mCalorie</td>
+                        <td>@exerciseEntry.mClimb</td>
+                        <td>@exerciseEntry.mComment</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-2"></div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $.post("@Url.Action("GetExerciseEntry", "Home")", { id: 1 }, function(data) {
-            alert(data);
-        });
-
-
-
-    });
-</script>
