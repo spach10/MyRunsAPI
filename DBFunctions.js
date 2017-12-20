@@ -34,7 +34,7 @@ var DBFunctions = function() {
 
 	this.insertLatLngCoordinates = function(conn, data) {
 	    return new bpromise(function(resolve, reject) {
-            var query = conn.query("INSERT INTO LatLngCoordinate (`id`, `exerciseEntryId`, `lat`, `lng`) VALUES (null, " + data.exerciseEntryId + ", "+ data.lat +", "+ data.lng +");" , function (error, results) {
+            var query = conn.query("INSERT INTO LatLngCoordinate (`id`, `exerciseEntryId`, `lat`, `lng`) VALUES (null, " + data.exerciseEntryId + ", "+ data.lat +", "+ data.lng +");", function (error, results) {
         	    if(error) {
         			reject(error);
         		} else {
@@ -42,6 +42,42 @@ var DBFunctions = function() {
         		}
         	});
         });
+	}
+
+	this.getExerciseEntries = function(conn, data) {
+		return new bpromise(function(resolve, reject) {
+			var query = conn.query("SELECT * FROM ExerciseEntry;", function(error, results) {
+				if(error) {
+        			reject(error);
+        		} else {
+        			resolve(JSON.stringify(results));
+        		}
+			});
+		});
+	}
+
+	this.getExerciseEntry = function(conn, id) {
+		return new bpromise(function(resolve, reject) {
+			var query = conn.query("SELECT * FROM ExerciseEntry WHERE id=" + id + ";", function(error, results) {
+				if(error) {
+        			reject(error);
+        		} else {
+        			resolve(JSON.stringify(results));
+        		}
+			});
+		});
+	}
+
+	this.getLatLngPointsById = function(conn, id) {
+		return new bpromise(function(resolve, reject) {
+			var query = conn.query("SELECT * FROM LatLngCoordinate WHERE exerciseEntryId = " + id + ";", function(error, results) {
+				if (error) {
+					reject(error);
+				} else {
+					resolve(JSON.stringify(results));
+				}
+			});
+		});
 	}
 }
 

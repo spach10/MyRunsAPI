@@ -54,6 +54,64 @@ router.route('/insert-lat-lng-coordinates/')
         });
     });
 
+
+router.route('/get-exercise-entries/')
+// Create endpoint localhost:9090/api/get-exercise-entries
+    .get(function(req, res) {
+        if (!req.body)
+            return res.sendStatus(400);
+
+        // Connect to mysql db and insert data
+        var dbConn = DB.connectToDB();
+        DB.getExerciseEntries(dbConn, req.body).then(function(result) {
+            dbConn.end();
+            res.end(result);
+            console.log(result);
+        }).catch(function(error) {
+            dbConn.end();
+            res.end("Error in the retrieve query");
+            console.log(error);
+        });
+    });
+
+router.route('/get-exercise-entry/')
+// Create endpoint localhost:9090/api/get-exercise-entry/
+    .post(function(req, res) {
+        if (!req.body)
+            return res.sendStatus(400);
+
+        // Connect to mysql db and insert data
+        var dbConn = DB.connectToDB();
+        DB.getExerciseEntry(dbConn, req.body.id).then(function(result) {
+            dbConn.end();
+            res.end(result);
+            console.log(result);
+        }).catch(function(error) {
+            dbConn.end();
+            res.end("Error in the retrieve query");
+            console.log(error);
+        });
+    });
+
+router.route('/get-lat-lng-points/')
+// Create endpoint localhost:9090/api/get-lat-lng-points/
+    .post(function(req, res) {
+        if (!req.body)
+            return res.sendStatus(400);
+
+        // Connect to mysql db and insert data
+        var dbConn = DB.connectToDB();
+        DB.getLatLngPointsById(dbConn, req.body.id).then(function(result) {
+            dbConn.end();
+            res.end(result);
+            console.log(result);
+        }).catch(function(error) {
+            dbConn.end();
+            res.end("Error in the retrieve query");
+            console.log(error);
+        });
+    });
+
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
