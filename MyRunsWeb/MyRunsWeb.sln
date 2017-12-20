@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRunsWeb", "MyRunsWeb\MyRunsWeb.csproj", "{CACA4600-4A0C-4A53-8F85-F6E4DC7C79D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRunsWeb.Tests", "MyRunsWeb.Tests\MyRunsWeb.Tests.csproj", "{C4C52565-4BEE-45EF-AC86-7AA2C1758BE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CACA4600-4A0C-4A53-8F85-F6E4DC7C79D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CACA4600-4A0C-4A53-8F85-F6E4DC7C79D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CACA4600-4A0C-4A53-8F85-F6E4DC7C79D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CACA4600-4A0C-4A53-8F85-F6E4DC7C79D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4C52565-4BEE-45EF-AC86-7AA2C1758BE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4C52565-4BEE-45EF-AC86-7AA2C1758BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4C52565-4BEE-45EF-AC86-7AA2C1758BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4C52565-4BEE-45EF-AC86-7AA2C1758BE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
